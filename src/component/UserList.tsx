@@ -12,12 +12,12 @@ export const UserList = () => {
                     tertiaryText={(record) => record.username}
                 />
             ) : (
-                <Datagrid>
+                <Datagrid rowClick="edit">
                     <TextField source='id' label='用户id'/>
                     <EmailField source='email' label='电子邮箱'/>
                     <TextField source='username' label='用户名称'/>
-                    <TextField source='last_login_time' label='最后登录时间'/>
-                    <TextField source='registration_time' label='注册时间'/>
+                    <TextField source='lastLoginTime' label='最后登录时间' emptyText='null'/>
+                    <TextField source='registrationTime' label='注册时间'/>
                     <FunctionField label='用户状态'
                                    render={(record: any) => {
                                        if (record.status === 'active') return '激活'; else return '锁定'

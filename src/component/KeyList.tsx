@@ -12,13 +12,13 @@ export const KeyList = () => {
                 />
             ) : (
                 <Datagrid rowClick='edit'>
-                    <TextField source='id' label='Id' emptyText='\'/>
-                    <TextField source='user_id' label='用户Id' emptyText='\'/>
-                    <TextField source='bdk' label='DUKPT BDK' emptyText='\'/>
-                    <TextField source='count' label='协商次数' emptyText='\'/>
-                    <TextField source='initial_key_id' label='DUKPT Key ID' emptyText='\'/>
-                    <TextField source='created_at' label='创建时间' emptyText='\'/>
-                    <TextField source='updated_at' label='更新时间' emptyText='\'/>
+                    <TextField source='id' label='Id' emptyText='无'/>
+                    <TextField source='userId' label='用户Id' emptyText='无'/>
+                    <TextField source='bdk' label='BDK' emptyText='无'/>
+                    <TextField source='count' label='DUKPT协商次数' emptyText='无'/>
+                    <TextField source='initialKeyId' label='DUKPT Key ID' emptyText='无'/>
+                    <TextField source='createdAt' label='创建时间' emptyText='无'/>
+                    <TextField source='updatedAt' label='更新时间' emptyText='无'/>
                 </Datagrid>
             )}
         </List>
