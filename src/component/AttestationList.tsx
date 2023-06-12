@@ -13,14 +13,14 @@ export const AttestationList = () => {
             ) : (
                 <Datagrid rowClick='edit'>
                     <TextField source='id' label='Id' emptyText='无'/>
-                    <TextField source='isDebuggable' label='可调式' emptyText='无'/>
-                    <TextField source='findFrida' label='frida' emptyText='无'/>
-                    <TextField source='findXposed' label='xposed' emptyText='无'/>
-                    <TextField source='checkMaps' label='映射表' emptyText='无'/>
-                    <TextField source='buildTags' label='构造标签' emptyText='无'/>
-                    <TextField source='roDebuggable' label='magisk' emptyText='无'/>
-                    <TextField source='roBootVerifiedbootState' label='magisk' emptyText='无'/>
-                    <TextField source='appSignature' label='应用签名' emptyText='无'/>
+                    <TextField source='isDebuggable' label='可调式' emptyText='无' sortable={false}/>
+                    <TextField source='findFrida' label='frida' emptyText='无' sortable={false}/>
+                    <TextField source='findXposed' label='xposed' emptyText='无' sortable={false}/>
+                    <TextField source='checkMaps' label='映射表' emptyText='无' sortable={false}/>
+                    <TextField source='buildTags' label='构造标签' emptyText='无' sortable={false}/>
+                    <TextField source='roDebuggable' label='magisk' emptyText='无' sortable={false}/>
+                    <TextField source='roBootVerifiedbootState' label='magisk' emptyText='无' sortable={false}/>
+                    <TextField source='appSignature' label='应用签名' emptyText='无' sortable={false}/>
                     <FunctionField label='设备Id' render={(record: any) => {
                         if (record.deviceId.length > 10) return record.deviceId.slice(0, 10) + '...'; else return record.deviceId;
                     }}/>

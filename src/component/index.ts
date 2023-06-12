@@ -5,13 +5,17 @@ import {KeyList} from "./KeyList";
 import {LessonList} from "./LessonList";
 import {AttestationList} from "./AttestationList";
 import {UserEdit} from "./UserEdit";
+import {DeviceEdit} from "./DeviceEdit";
+import {LessonEdit} from "./LessonEdit";
 
 export {
-    Dashboard,
     UserList,
     UserEdit,
     DeviceList,
-    KeyList,
+    DeviceEdit,
     LessonList,
-    AttestationList
+    LessonEdit,
+    Dashboard,
+    AttestationList,
+    KeyList
 }

@@ -13,8 +13,10 @@ export const DataProvider = {
         const {field, order} = params.sort;
 
         let query = {
-            sort: JSON.stringify([field, order]),
-            range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
+            currentPage: page,
+            pageSize: perPage,
+            sort: field,
+            order: order
         };
 
         if (Object.keys(params.filter).length !== 0) {
@@ -67,8 +69,6 @@ export const DataProvider = {
             status: params.data.status
         };
 
-        console.log(query);
-
         const customHeader = new Headers({
             'Content-Type': 'application/json'
         });
@@ -92,7 +92,11 @@ export const DataProvider = {
                 return response.json()
             })
             .then((data) => {
-                return handleCommonData(data, resource);
+                if (data.code === 400500) throw new Error(data.message);
+                const res = {
+                    data: query
+                }
+                return Object.assign(data, res);
             })
             .catch((msg) => {
                 throw new Error(msg);
