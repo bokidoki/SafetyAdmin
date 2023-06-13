@@ -114,14 +114,12 @@ export const DataProvider = {
         }).then(({json}) => ({data: json}));
     },
 
-    // TODO
-    create: (resource: string, params: any) =>
-        httpClient(`${apiUrl}/${resource}`, {
-            method: 'POST',
-            body: JSON.stringify(params.data),
-        }).then(({json}) => ({
-            data: {...params.data, id: json.id},
-        })),
+    // DONE
+    create: (resource: string, params: any) => {
+        const createUrl = `${BASE_PATH}/${resource}/create`;
+        const query = params.data;
+        return commonRequest(createUrl, resource, query, handleCreateData);
+    },
 
     // TODO
     delete: (resource: string, params: any) =>
@@ -238,6 +236,21 @@ function handleOneData(data: any, resource: string) {
 
     if (data.code !== 200) throw new Error(data.message);
     const result = data.data[0];
+    return {
+        data: isUser ? {...result, id: result.userId} : isDevices ? {
+            ...result,
+            id: result.deviceId
+        } : isLessons ? {...result, id: result.lessonId} : result
+    }
+}
+
+function handleCreateData(data: any, resource: string) {
+    const isUser = resource === 'user';
+    const isDevices = resource === 'device';
+    const isLessons = resource === 'lesson';
+
+    if (data.code === 400500) throw new Error(data.message);
+    const result = data.data;
     return {
         data: isUser ? {...result, id: result.userId} : isDevices ? {
             ...result,

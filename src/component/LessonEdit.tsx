@@ -1,11 +1,12 @@
 import * as React from 'react';
-import {Edit, required, SelectInput, SimpleForm, TextInput} from "react-admin";
-
-const lessonStatusList = [
-    {id: 'draft', name: '草稿'},
-    {id: 'published', name: '发布'},
-    {id: 'archived', name: '归档'},
-];
+import {
+    Edit,
+    required,
+    SelectInput,
+    SimpleForm,
+    TextInput,
+} from 'react-admin';
+import {lessonStatusList} from '../constants/SelectData';
 
 export const LessonEdit = () => (
     <Edit>

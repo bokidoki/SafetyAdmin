@@ -7,6 +7,7 @@ import {AttestationList} from "./AttestationList";
 import {UserEdit} from "./UserEdit";
 import {DeviceEdit} from "./DeviceEdit";
 import {LessonEdit} from "./LessonEdit";
+import {LessonCreate} from "./LessonCreate";
 
 export {
     UserList,
@@ -14,6 +15,7 @@ export {
     DeviceList,
     DeviceEdit,
     LessonList,
+    LessonCreate,
     LessonEdit,
     Dashboard,
     AttestationList,
